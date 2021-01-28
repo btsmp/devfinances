@@ -1,4 +1,7 @@
 /*--------- Global --------- */
+:root {
+  --light-gray: #1f1f1f;
+}
 * {
   margin: 0;
   padding: 0;
@@ -6,8 +9,20 @@
 }
 
 body {
-  background: #272727;
+  background: #191919;
   font-family: "Poppins", sans-serif;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 .container {
@@ -25,9 +40,25 @@ h2 {
   font-weight: normal;
 }
 
+/*--------- Links and Buttons --------- */
+
+a {
+  color: #a36a00;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ffa600;
+}
+
+.button.new {
+  display: inline-block;
+  margin-bottom: 0.8rem;
+}
+
 /*--------- Header --------- */
 header {
-  background: #26142a;
+  background: #a36a00;
   padding: 2rem 0 10rem;
   text-align: center;
 }
@@ -48,7 +79,7 @@ header {
 /*--------- Cards --------- */
 
 .card {
-  background: #313131;
+  background: var(--light-gray);
   padding: 1.5rem 2rem;
   border-radius: 0.25rem;
 
@@ -60,6 +91,10 @@ header {
 .card h3 {
   font-weight: normal;
   font-size: 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .card p {
@@ -69,7 +104,7 @@ header {
 }
 
 .card.total {
-  background: #431c53;
+  background: #cc8500;
   color: white;
 }
 /*--------- Table --------- */
@@ -86,7 +121,7 @@ table tbody tr td:first-child {
 }
 
 table thead th {
-  background: #313131;
+  background: var(--light-gray);
 
   font-weight: normal;
   padding: 1rem 2rem;
@@ -103,7 +138,7 @@ table tbody tr:hover {
 }
 
 table tbody td {
-  background: #313131;
+  background: var(--light-gray);
   padding: 1rem 2rem;
 }
 
