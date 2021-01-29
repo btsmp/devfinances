@@ -1,13 +1,16 @@
 /*--------- Global --------- */
 :root {
   --light-gray: #1f1f1f;
+  --yellow: #a36a00;
 }
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
+html {
+  font-size: 93.75%;
+}
 body {
   background: #191919;
   font-family: "Poppins", sans-serif;
@@ -43,12 +46,45 @@ h2 {
 /*--------- Links and Buttons --------- */
 
 a {
-  color: #a36a00;
+  color: var(--yellow);
   text-decoration: none;
 }
 
 a:hover {
   color: #ffa600;
+}
+
+button {
+  width: 100%;
+  height: 50px;
+  
+  border: none;
+  color: white;
+  background-color: var(--yellow);
+  border-radius: .15rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #cc8500;
+}
+
+.button.cancel {
+  color: #E83F5B;
+  border: 2px #E83F5B solid;
+  border-radius: .15rem;
+  
+  height: 50px;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0.6;
+}
+
+.button.cancel:hover{
+  opacity: 1;
 }
 
 .button.new {
@@ -58,7 +94,7 @@ a:hover {
 
 /*--------- Header --------- */
 header {
-  background: #a36a00;
+  background: var(--yellow);
   padding: 2rem 0 10rem;
   text-align: center;
 }
@@ -108,7 +144,10 @@ header {
   color: white;
 }
 /*--------- Table --------- */
-
+#transaction {
+  display: block;
+  overflow-x: auto;
+}
 #data-table {
   width: 100%;
   border-spacing: 0 0.5rem;
@@ -118,6 +157,11 @@ header {
 table thead tr th:first-child,
 table tbody tr td:first-child {
   border-radius: 0.25rem 0 0 0.25rem;
+}
+
+table thead tr th:last-child,
+table tbody tr td:last-child {
+  border-radius: 0 0.25rem 0.25rem 0;
 }
 
 table thead th {
@@ -153,11 +197,94 @@ td.income {
 td.expense {
   color: #e92929;
 }
+/*--------- Modal --------- */
+
+.modal-overlay {
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0, 0, 0, 0.7);
+
+  position: fixed;
+  top: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal {
+  background: var(--light-gray);
+  padding: 2.4rem;
+  border-radius: 0.2rem;
+}
+/*--------- Form --------- */
+
+#form {
+  max-width: 500px;
+  
+}
+#form h2 {
+  margin-top: 0;
+}
+
+input {
+  border: none;
+  border-radius: 0.2rem;
+  padding: 0.8rem;
+
+  width: 100%;
+
+  background: #454545;
+}
+
+.input-group {
+  margin-top: 0.8rem;
+}
+
+.input-group small {
+  opacity: 0.2;
+  color: white;
+}
+
+
+.input-group.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-group.actions .button, 
+.input-group.actions button {
+  width: 48%;   
+}
+
 /*--------- Footer --------- */
 footer {
   text-align: center;
-  padding: 4rem 0 2rem;
+  padding: 3rem 0 2rem;
 
   color: white;
   opacity: 0.6;
+}
+
+/*--------- Resposnive --------- */
+
+@media (min-width: 720px) {
+  html {
+    font-size: 87.5%;
+  }
+  #balance {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
 }
